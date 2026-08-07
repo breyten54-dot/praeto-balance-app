@@ -1,0 +1,20 @@
+name: Keep demo API awake
+
+# Render's free tier spins the service down after ~15 min idle; the next
+# visitor then eats a 60-90s cold start, which is what broke the boss's demo
+# walkthrough (blank screens, "something went wrong" submits). Pinging /health
+# every 10 minutes keeps the instance warm for the demo period.
+# Delete this workflow when the app moves to the paid Fly.io deployment.
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping health endpoint
+        run: |
+          curl -fsS --max-time 120 https://praeto-balance-api.onrender.com/api/v1/health

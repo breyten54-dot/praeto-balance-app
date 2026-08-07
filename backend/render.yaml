@@ -1,0 +1,47 @@
+# Render Blueprint — Praeto Balance API (FREE demo tier)
+# Deploy: Render dashboard -> New -> Blueprint -> select this repo.
+# You will be prompted for the two sync:false values:
+#   DATABASE_URL   = the Neon Postgres connection string (direct, not pooled)
+#   API_PUBLIC_URL = this service's public URL, e.g. https://praeto-balance-api.onrender.com
+#
+# NOTE (free tier): no pre-deploy hook, so migrations/seed are run FROM A LOCAL
+# MACHINE against the Neon database before/after deploys:
+#   $env:DATABASE_URL="<neon url>"; npx prisma migrate deploy; npx prisma db seed
+#
+# This is the DEMO deployment. Production path is Fly.io Johannesburg
+# (see blueprints/12-deploy-fly-jnb.md) — same Dockerfile, SA data residency.
+
+services:
+  - type: web
+    name: praeto-balance-api
+    runtime: docker
+    region: frankfurt
+    plan: free
+    healthCheckPath: /api/v1/health
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: API_PUBLIC_URL
+        sync: false
+      - key: JWT_ACCESS_SECRET
+        generateValue: true
+      - key: REVENUECAT_WEBHOOK_AUTH
+        generateValue: true
+      - key: APP_ENV
+        value: staging
+      - key: TZ
+        value: Africa/Johannesburg
+      - key: PORT
+        value: "4000"
+      - key: PAYFAST_MODE
+        value: sandbox
+      - key: PAYFAST_MERCHANT_ID
+        value: "10000100"
+      - key: PAYFAST_MERCHANT_KEY
+        value: 46f0cd694581a
+      - key: PAYFAST_PASSPHRASE
+        value: ""
+      - key: FEATURE_SAVINGS_ENABLED
+        value: "false"
+      - key: FEATURE_RISK_PROFILE_ENABLED
+        value: "false"

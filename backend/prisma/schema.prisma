@@ -1,0 +1,349 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum LsmBand {
+  lsm_1_3
+  lsm_4_6
+  lsm_7_8
+  lsm_9_10
+}
+
+enum SubscriptionTier {
+  free
+  premium
+}
+
+enum KycStatus {
+  unverified
+  pending
+  verified
+}
+
+model User {
+  id                     String                  @id @default(cuid())
+  email                  String                  @unique
+  passwordHash           String
+  firstName              String
+  lastName               String
+  lsmBand                LsmBand                 @default(lsm_4_6)
+  subscriptionTier       SubscriptionTier        @default(free)
+  kycStatus              KycStatus               @default(unverified)
+  monthlyIncomeCents     Int                     @default(1850000)
+  createdAt              DateTime                @default(now())
+  updatedAt              DateTime                @updatedAt
+  refreshTokens          RefreshToken[]
+  transactions           Transaction[]
+  budgetCategoryLimits   BudgetCategoryLimit[]
+  gamblingSettings       GamblingSettings?
+  coolingOffPeriods      CoolingOffPeriod[]
+  learnCompletions       LearnCompletion[]
+  pointsLedger           PointsLedger[]
+  scoreSnapshots         ScoreSnapshot[]
+  redemptions            Redemption[]
+  partnerLinks           PartnerLink[]
+  riskProfileSubmissions RiskProfileSubmission[]
+  savingsAccounts        SavingsAccountModel[]
+  coachingBookings       CoachingBooking[]
+  bankLinkTokens         BankLinkToken[]
+  bankAccounts           BankAccount[]
+
+  @@map("users")
+}
+
+model RefreshToken {
+  id        String   @id @default(cuid())
+  tokenHash String   @unique
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+  @@map("refresh_tokens")
+}
+
+model Transaction {
+  id          String   @id @default(cuid())
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId      String
+  merchant    String
+  category    String
+  amountCents Int
+  occurredAt  DateTime
+  source      String   @default("seed")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([userId, occurredAt])
+  @@map("transactions")
+}
+
+model BudgetCategoryLimit {
+  id         String   @id @default(cuid())
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId     String
+  category   String
+  limitCents Int
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@unique([userId, category])
+  @@map("budget_category_limits")
+}
+
+model GamblingSettings {
+  id                       String   @id @default(cuid())
+  user                     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId                   String   @unique
+  monthlyLimitCents        Int      @default(50000)
+  dailyAlertEnabled        Boolean  @default(false)
+  dailyAlertThresholdCents Int?
+  createdAt                DateTime @default(now())
+  updatedAt                DateTime @updatedAt
+
+  @@map("gambling_settings")
+}
+
+model CoolingOffPeriod {
+  id        String   @id @default(cuid())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  startsAt  DateTime
+  endsAt    DateTime
+  createdAt DateTime @default(now())
+
+  @@index([userId, endsAt])
+  @@map("cooling_off_periods")
+}
+
+model LearnModuleDef {
+  id               String            @id
+  pillar           Int
+  orderIndex       Int
+  title            String
+  subtitle         String
+  bodyMarkdown     String
+  videoUrl         String?
+  videoStatus      String            @default("not_produced")
+  pointsAwarded    Int
+  estimatedMinutes Int
+  completions      LearnCompletion[]
+
+  @@unique([pillar, orderIndex])
+  @@map("learn_modules")
+}
+
+model LearnCompletion {
+  id        String         @id @default(cuid())
+  user      User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  module    LearnModuleDef @relation(fields: [moduleId], references: [id])
+  moduleId  String
+  createdAt DateTime       @default(now())
+
+  @@unique([userId, moduleId])
+  @@map("learn_completions")
+}
+
+model PointsLedger {
+  id        String   @id @default(cuid())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  delta     Int
+  reason    String
+  refId     String?
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+  @@map("points_ledger")
+}
+
+model RewardOffer {
+  id          String       @id
+  title       String
+  partner     String
+  pointsCost  Int
+  category    String
+  active      Boolean      @default(true)
+  redemptions Redemption[]
+
+  @@map("reward_offers")
+}
+
+model Redemption {
+  id          String      @id @default(cuid())
+  user        User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId      String
+  offer       RewardOffer @relation(fields: [offerId], references: [id])
+  offerId     String
+  pointsSpent Int
+  createdAt   DateTime    @default(now())
+
+  @@map("redemptions")
+}
+
+model PartnerLink {
+  id       String   @id @default(cuid())
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId   String
+  partner  String
+  linkedAt DateTime @default(now())
+
+  @@unique([userId, partner])
+  @@map("partner_links")
+}
+
+model RiskProfileSubmission {
+  id                String   @id @default(cuid())
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId            String
+  answers           Json
+  riskCapacityScore Int
+  riskAttitudeScore Int
+  totalScore        Int
+  category          String
+  completedAt       DateTime @default(now())
+
+  @@index([userId, completedAt])
+  @@map("risk_profile_submissions")
+}
+
+model SavingsAccountModel {
+  id                        String              @id @default(cuid())
+  user                      User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId                    String              @unique
+  provider                  String              @default("partner_bank")
+  balanceCents              Int                 @default(0)
+  interestRateAnnual        Float               @default(5.5)
+  withdrawalsAllowedPerYear Int                 @default(4)
+  goals                     SavingsGoalModel[]
+  withdrawals               SavingsWithdrawal[]
+  createdAt                 DateTime            @default(now())
+  updatedAt                 DateTime            @updatedAt
+
+  @@map("savings_accounts")
+}
+
+model SavingsGoalModel {
+  id           String              @id @default(cuid())
+  account      SavingsAccountModel @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  accountId    String
+  name         String
+  targetCents  Int
+  currentCents Int                 @default(0)
+  targetDate   DateTime?
+  createdAt    DateTime            @default(now())
+  updatedAt    DateTime            @updatedAt
+
+  @@map("savings_goals")
+}
+
+model SavingsWithdrawal {
+  id          String              @id @default(cuid())
+  account     SavingsAccountModel @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  accountId   String
+  amountCents Int
+  goalId      String?
+  createdAt   DateTime            @default(now())
+
+  @@index([accountId, createdAt])
+  @@map("savings_withdrawals")
+}
+
+model CoachingSlot {
+  id       String   @id @default(cuid())
+  startsAt DateTime
+  endsAt   DateTime
+  booked   Boolean  @default(false)
+
+  @@index([startsAt])
+  @@map("coaching_slots")
+}
+
+model CoachingBooking {
+  id               String   @id @default(cuid())
+  user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId           String
+  tier             String
+  priceCents       Int
+  status           String   @default("pending_payment")
+  payfastPaymentId String?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@map("coaching_bookings")
+}
+
+model PaymentNotification {
+  id        String   @id @default(cuid())
+  bookingId String?
+  rawBody   Json
+  verdict   String
+  createdAt DateTime @default(now())
+
+  @@map("payment_notifications")
+}
+
+model RiskProduct {
+  id          String @id
+  category    String
+  name        String
+  description String
+
+  @@map("risk_products")
+}
+
+model ScoreSnapshot {
+  id         String   @id @default(cuid())
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId     String
+  month      String
+  score      Int
+  dimensions Json
+  computedAt DateTime @default(now())
+
+  @@unique([userId, month])
+  @@map("score_snapshots")
+}
+
+model SubscriptionEvent {
+  id        String   @id @default(cuid())
+  eventId   String   @unique
+  type      String
+  appUserId String
+  verdict   String
+  rawEvent  Json
+  createdAt DateTime @default(now())
+
+  @@map("subscription_events")
+}
+
+model BankLinkToken {
+  id        String   @id @default(cuid())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  used      Boolean  @default(false)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  @@map("bank_link_tokens")
+}
+
+model BankAccount {
+  id                  String   @id @default(cuid())
+  user                User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId              String
+  institutionId       String
+  institutionName     String
+  maskedAccountNumber String
+  status              String   @default("active") // active | unlinked
+  linkedAt            DateTime @default(now())
+
+  @@map("bank_accounts")
+}
