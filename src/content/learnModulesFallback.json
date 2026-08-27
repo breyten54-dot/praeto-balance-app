@@ -1,0 +1,98 @@
+[
+  {
+    "id": "seed-learn-01",
+    "pillar": 1,
+    "orderIndex": 1,
+    "title": "Where does your money go?",
+    "subtitle": "Track a month of real spending",
+    "bodyMarkdown": "Most people believe they know where their money goes, yet the small, repeated purchases usually disappear faster than the large ones. A daily coffee, a quick app download, a few bets on a weekend match and an impulse takeaway can together add up to hundreds of rands in a single month. In this module you will look at one full month of real spending and sort every transaction into clear categories such as groceries, transport, airtime and data, eating out, entertainment and gambling. The exercise is not meant to shame you; it is meant to reveal the pattern that your memory alone cannot see. Once you can see where your money is actually going, you can begin deciding where you want it to go instead. Many people find that simply writing down every spend for thirty days changes their behaviour automatically, because awareness comes before control. You do not need a fancy spreadsheet; a notebook or the notes app on your phone is enough. A clear, honest picture of your cash flow is the first step toward any lasting financial change."
+  },
+  {
+    "id": "seed-learn-02",
+    "pillar": 1,
+    "orderIndex": 2,
+    "title": "Needs, wants and leaks",
+    "subtitle": "Spot the spending that adds no value",
+    "bodyMarkdown": "Every rand you spend falls into one of three categories: needs, wants and leaks. Needs are the bills that keep your life stable, such as rent or bond payments, groceries, transport, school fees, electricity and debt instalments. Wants are the things that make life enjoyable, such as streaming services, eating out, new clothes and entertainment, but they can be delayed or reduced when money is tight. Leaks are the most dangerous category because they slip through unnoticed, such as unused gym memberships, app subscriptions you forgot about, daily convenience-store snacks and impulse online purchases. In this module you will learn to sort your own spending honestly and spot the leaks that quietly drain your budget. A leak is not the same as a want; a want gives you something you value, while a leak gives you almost nothing. The goal is not to cut out every pleasure; it is to make sure your money is going where you actually want it to go. Closing even one or two leaks can free up surprising room for the things that matter more to you."
+  },
+  {
+    "id": "seed-learn-03",
+    "pillar": 1,
+    "orderIndex": 3,
+    "title": "Your first budget",
+    "subtitle": "Build a simple monthly plan that sticks",
+    "bodyMarkdown": "A budget is simply a plan for your money before the month begins, not a punishment for past spending. Start with the income that actually lands in your account after tax and deductions, then list every need and commit money to each one before the month starts. Next, set a realistic amount for savings, even if it is only a few hundred rand. Whatever remains can be split between wants, extra debt repayment and a small buffer for surprises. The trick is to keep the budget simple enough to update in five minutes and to review it once a week. If a category runs out, you adjust the next week rather than abandoning the whole plan. Many budgets fail because they are too complicated or too strict; a budget that lives in your head is easily forgotten. A budget written down and checked regularly becomes a tool that helps you say yes to the things you truly care about, because it makes the trade-offs visible before you spend."
+  },
+  {
+    "id": "seed-learn-04",
+    "pillar": 2,
+    "orderIndex": 1,
+    "title": "The debt spiral",
+    "subtitle": "How short-term credit gets expensive",
+    "bodyMarkdown": "Short-term credit can feel like a lifeline in an emergency, but it can quickly become a cycle that is hard to escape. When you borrow to pay for everyday living, you add interest and fees to bills that were already difficult to cover. If the next month is also tight, you may borrow again to repay the first loan. That is the debt spiral: each new loan makes the hole deeper and the interest heavier, and the fees keep the cycle turning. In this module you will see how interest rates, initiation fees and late charges work together to keep you stuck. You will also learn why the first step out is to stop digging, even if that means having a hard but honest conversation with creditors. Breaking the spiral is not about blame; it is about changing the pattern before it grows. Once you stop adding new short-term debt, you can start rearranging what you already owe into a manageable plan."
+  },
+  {
+    "id": "seed-learn-05",
+    "pillar": 2,
+    "orderIndex": 2,
+    "title": "Good debt, bad debt",
+    "subtitle": "When borrowing builds vs breaks you",
+    "bodyMarkdown": "Debt is not automatically bad, but it is not automatically good either. The difference depends on what the debt does for you over time. Good debt helps you acquire something that grows in value or increases your income, such as a home loan on a well-chosen property or a student loan for a qualification that lifts your earnings. Bad debt is borrowing for things that lose value quickly or for pure consumption, such as clothes, gadgets, holidays and gambling. The difference is not about shame or status; it is about whether the debt leaves you better off five years from now. In this module you will learn to judge each debt by its purpose, its interest rate and whether it moves you toward or away from your long-term goals. You will also see why a low-interest loan for education can be sensible, while a high-interest loan for a night out can quietly cost far more than the original price."
+  },
+  {
+    "id": "seed-learn-06",
+    "pillar": 2,
+    "orderIndex": 3,
+    "title": "Getting out of arrears",
+    "subtitle": "A step-by-step catch-up plan",
+    "bodyMarkdown": "Falling behind on bills is stressful, but the situation is usually fixable if you face it directly rather than avoiding calls and letters. Start by listing every account you owe, the amount in arrears, the interest rate and any penalties. Pay the debts that keep life running first, such as rent, electricity, transport and food. Then contact the other creditors honestly and ask for a realistic payment arrangement. Most creditors prefer a steady, smaller payment plan over silence, because silence gives them no information about when they will be paid. In this module you will build a catch-up schedule that protects your essentials, stops penalties from growing and rebuilds trust one payment at a time. The goal is progress, not perfection. Even a small, consistent payment shows good faith and often prevents further legal action, while hiding only makes the problem harder to solve. Communication does not remove the debt, but it does remove the uncertainty that makes arrears feel overwhelming."
+  },
+  {
+    "id": "seed-learn-07",
+    "pillar": 3,
+    "orderIndex": 1,
+    "title": "Why save at all?",
+    "subtitle": "Emergencies cost less when you're ready",
+    "bodyMarkdown": "Saving is not about having a lot of money; it is about giving yourself room to breathe when life goes wrong. An emergency fund turns a broken geyser, a car repair or a sudden loss of income from a crisis into an inconvenience. Without savings, the same event can push you straight into expensive short-term credit or force you to skip essential bills. In this module you will set a realistic first target, usually one month of essential expenses, and choose a safe place to keep the money separate from your day-to-day account. The most important habit is to start small and start now. Small, regular deposits beat occasional big ones because they become automatic, and automatic savings are the ones that actually grow. You do not need to fully fund your emergency savings today; you only need to start, and then keep going one deposit at a time. Having even a small cushion changes how you feel about the future and the choices you make under pressure."
+  },
+  {
+    "id": "seed-learn-08",
+    "pillar": 3,
+    "orderIndex": 2,
+    "title": "The 30-day rule",
+    "subtitle": "Beat impulse buying with one habit",
+    "bodyMarkdown": "Impulse buys feel urgent in the moment but often look unnecessary a month later. The 30-day rule is simple: when you want something that is not essential, write it down and wait 30 days before you buy it. If you still want the item and it still fits your budget, go ahead. Most of the time the urge will pass and you will keep the money for something more important. This habit protects your budget without making life feel restricted, because you are not saying no forever; you are just saying not now. It also trains you to separate real needs from marketing excitement. In this module you will practice the rule with one real purchase you have been considering, and you will learn how to keep a simple wish list. You may be surprised how many items lose their appeal once the advertising has faded from your mind. The wish list becomes a filter, not a prison, and it leaves more money for the purchases that still matter after the wait."
+  },
+  {
+    "id": "seed-learn-09",
+    "pillar": 3,
+    "orderIndex": 3,
+    "title": "Saving on an irregular income",
+    "subtitle": "Strategies when pay is unpredictable",
+    "bodyMarkdown": "When your income changes from week to week, budgeting feels harder because you cannot predict the exact amount coming in. The solution is to budget from your lowest likely month, not from your best month. During good months, deliberately build a buffer that covers the slower ones. Pay your essential bills first, keep a separate emergency fund, and treat savings as a non-negotiable expense rather than something leftover at the end. In this module you will learn how to smooth out an irregular cash flow so that your plans survive the quiet months without panic. This approach means you stop chasing the highest earnings and start planning around the lowest ones, which removes much of the anxiety. The goal is to turn unpredictable income into predictable financial habits, so that one quiet week does not derail your entire month. With a buffer in place, you can accept variable work without feeling like your finances are always one step away from crisis."
+  },
+  {
+    "id": "seed-learn-10",
+    "pillar": 4,
+    "orderIndex": 1,
+    "title": "Gambling: the real odds",
+    "subtitle": "What the numbers actually say",
+    "bodyMarkdown": "Gambling products are designed so that, over time, the operator keeps more money than they pay out to players. This is not a secret; it is simply how the business model works. The odds are stacked against the player in the long run, and no system, lucky charm, hot streak or superstition changes the underlying mathematics. In this module you will look at how house edge, random outcomes and near-misses keep people playing longer than they planned. You will also see why a small win early on can create a false sense of skill, and why the next bet is never \"due\" to pay out. Understanding the real odds does not mean you can never enjoy a bet; it means you can make informed choices about how much time and money you are willing to spend. If gambling is no longer fun or is affecting your money, relationships or mood, free help is available from the National Responsible Gambling Programme on 0800 006 008 or by WhatsApp or SMS to 076 675 0710. You can also visit responsiblegambling.org.za."
+  },
+  {
+    "id": "seed-learn-11",
+    "pillar": 4,
+    "orderIndex": 2,
+    "title": "Chasing losses",
+    "subtitle": "Recognising the pattern before it grows",
+    "bodyMarkdown": "Chasing losses means trying to win back money you have already lost by betting more, betting longer or increasing the stakes. It is one of the most common ways a gambling session turns from entertainment into harm. The money you lost is already gone, and the next bet is independent of the last one; the odds do not owe you a win. In this module you will learn to spot the warning signs early, including borrowing to gamble, hiding losses from people close to you, feeling irritable when you are not betting and spending more time or money than you planned. You will also see why chasing often feels logical in the moment but almost always leaves you further behind. If you recognise these patterns, speak to someone you trust rather than waiting until the situation feels unbearable. The National Responsible Gambling Programme offers confidential support on 0800 006 008 or by WhatsApp and SMS to 076 675 0710."
+  },
+  {
+    "id": "seed-learn-12",
+    "pillar": 4,
+    "orderIndex": 3,
+    "title": "Betting within a budget",
+    "subtitle": "Hard limits and cooling-off tools",
+    "bodyMarkdown": "If you choose to gamble, the safest way to do it is to treat it as an entertainment expense with a hard limit, the same way you would allocate money for a movie or a meal out. Decide the amount before you start, leave cards at home if needed, and stop the moment the limit is reached. Cooling-off tools, such as self-exclusion, session timers and spending limits, can help you stick to the plan when willpower alone is not enough. In this module you will set a personal betting limit and a cooling-off rule that works for your own life. You will also learn why using cash or a separate wallet can make the limit feel real, and why a short walk or a set alarm can break the momentum of a long session. If gambling ever feels hard to control, reach out to the National Responsible Gambling Programme on 0800 006 008 or by WhatsApp or SMS to 076 675 0710. You can also visit responsiblegambling.org.za."
+  }
+]
