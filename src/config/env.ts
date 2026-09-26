@@ -42,7 +42,7 @@ const configs: Record<AppEnvName, AppEnv> = {
   },
   staging: {
     appEnv: 'staging',
-    apiBaseUrl: 'https://praeto-balance-api.onrender.com/api/v1',
+    apiBaseUrl: 'https://praeto-balance-api-v7pz.onrender.com/api/v1',
     apiTimeoutMs: 75_000,
     revenueCatApiKeyIos: 'appl_STAGING_PLACEHOLDER',
     revenueCatApiKeyAndroid: 'goog_STAGING_PLACEHOLDER',
